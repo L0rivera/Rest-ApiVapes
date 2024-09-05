@@ -34,7 +34,9 @@ namespace Rest_ApiVapes.Data
                             price = Convert.ToDecimal(dr["price"]),
                             status = Convert.ToBoolean(dr["status"]),
                             brand = dr["brand"].ToString(),
-                            flavor = dr["flavor"].ToString()
+                            flavor = dr["flavor"].ToString(),
+                            public_id = dr["public_id"].ToString(),
+                            secure_url = dr["secure_url"].ToString()
                         });
                     }
                 }
