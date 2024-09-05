@@ -1,0 +1,6 @@
+@Rest_ApiVapes_HostAddress = http://localhost:5250
+
+GET {{Rest_ApiVapes_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
