@@ -82,5 +82,31 @@ namespace Rest_ApiVapes.Data
             }
             return res;
         }
+
+        public bool DeleteVape(int VapeId)
+        {
+            bool res;
+
+            try
+            {
+                using(SqlConnection Connection = new SqlConnection(_connectionString))
+                {
+                    Connection.Open();
+                    SqlCommand cmd = new SqlCommand("delete_vape", Connection);
+                    cmd.Parameters.AddWithValue("VapeId", VapeId);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.ExecuteNonQuery();
+                }
+
+                res = true;
+            }
+            catch(Exception e)
+            {               
+                res = false;
+            }
+
+            return res;
+        }
     }
 }

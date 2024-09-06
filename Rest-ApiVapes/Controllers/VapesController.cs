@@ -61,7 +61,26 @@ namespace Rest_ApiVapes.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, "An error occurred while processing your request");
+                return StatusCode(500, "An error occurred while processing your request" + ex);
+            }
+        }
+
+        [HttpDelete]
+        [Route("api/delete/vape")]
+        public IActionResult Delete()
+        {
+            var VapeId = Convert.ToInt32(HttpContext.Request.Query["id"]);
+
+            if (VapeId > 0)
+            {
+
+                _vapeData.DeleteVape(VapeId);
+
+                return Ok("Vape eliminado exitosamente" + VapeId);
+            }
+            else
+            {
+                return BadRequest("No hay ID");
             }
         }
     }
